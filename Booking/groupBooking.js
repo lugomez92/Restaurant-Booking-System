@@ -2,14 +2,14 @@ const Booking = require('./booking.js')
 
 
 class GroupBooking extends Booking {
-    constructor(groupSize,customerName, date, time, numberOfGuests) {
+    constructor(customerName, date, time, numberOfGuests) {
         super(customerName, date, time, numberOfGuests)
-        this.groupSize = groupSize
+        
 
     }
 
     message(){
-        return `Your reservation at ${this.name}, located at ${this.address} has the following dress code: ${this.dressCode}`
+        return `${this.customerName}, your reservation for ${this.numberOfGuests} people, on: ${this.date}, at:${this.time} has been booked.`
     }
 }
 

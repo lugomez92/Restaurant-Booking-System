@@ -3,7 +3,7 @@ class Booking {
         this.customerName = customerName
         this.date = date
         this.time = time
-        this.numberOfGuests = this.numberOfGuests
+        this.numberOfGuests = numberOfGuests
     }
 
     bookingDetails(){
