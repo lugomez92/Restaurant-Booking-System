@@ -2,8 +2,8 @@ const Restaurant = require('./restaurant.js')
 
 
 class Casual extends Restaurant {
-    constructor(name, address, cuisineType) {
-        super(name, address, cuisineType)
+    constructor(name, address, cuisineType,reservations) {
+        super(name, address, cuisineType, reservations)
         this.dressCode = "Casual"
 
 
