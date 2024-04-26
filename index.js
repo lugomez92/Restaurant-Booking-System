@@ -7,8 +7,10 @@ const Casual = require('./Restaurant/casual.js');
 const FineDining = require('./Restaurant/fineDining.js');
 const Vacationer = require('./Traveler/vacationer.js');
 const BusinessTraveler = require('./Traveler/businessTraveler.js');
+const chalk = require('chalk');
 
-console.log("Welcome to the NYC restaurant booking system!");
+
+console.log(chalk.green("Welcome to the NYC restaurant booking system!"));
 
 const prompts = {
     name: "Please enter your name: ",
@@ -33,10 +35,10 @@ function handleTravelerType() {
     while (!travelerType || (travelerType !== "business" && travelerType !== "vacation")) {
         travelerType = getUserInput(prompts.travelerType);
         if (travelerType === "business") {
-            console.log(`${origin} is a beautiful place! Welcome to NYC! We're happy to assist you with booking the perfect dining spot for your business.`);
+            console.log(chalk.blue(`${origin} is a beautiful place! Welcome to NYC! We're happy to assist you with booking the perfect dining spot for your business.`));
             return new BusinessTraveler(customerName, origin);
         } else if (travelerType === "vacation") {
-            console.log(`${origin} is a beautiful place! Welcome to NYC! We're happy to assist you with booking the perfect dining spot for your vacation.`);
+            console.log(chalk.blue(`${origin} is a beautiful place! Welcome to NYC! We're happy to assist you with booking the perfect dining spot for your vacation.`));
             return new Vacationer(customerName, origin);
         } else {
             console.log(prompts.invalidTravelerType);
@@ -49,12 +51,12 @@ function handleDiningChoice() {
     while (!diningChoice || (diningChoice.toLowerCase() !== "fine" && diningChoice.toLowerCase() !== "casual")) {
         diningChoice = getUserInput(prompts.diningStyle).toLowerCase();
         if (diningChoice === "fine") {
-            console.log("Excellent choice! We'll make sure you have an unforgettable fine dining experience.");
+            console.log(chalk.cyan("Excellent choice! We'll make sure you have an unforgettable fine dining experience."));
             const fineType = getUserInput(prompts.fineType).toLowerCase();
             const fineChoice = fineObj[fineType];
             return getRandomRestaurant(fineChoice);
         } else if (diningChoice === "casual") {
-            console.log("Great! A casual dining experience it is. We'll find you the perfect spot.");
+            console.log(chalk.cyan("Great! A casual dining experience it is. We'll find you the perfect spot."));
             const casualType = getUserInput(prompts.casualType).toLowerCase();
             const casualChoice = casualObj[casualType];
             return getRandomRestaurant(casualChoice);
@@ -71,7 +73,7 @@ function getRandomRestaurant(restaurants) {
 
 function addBooking(booking, restaurant) {
     restaurant.addRes(booking);
-    console.log(`Thank you ${booking.customerName}! You have made a reservation at ${restaurant.name} for ${booking.numberOfGuests} people on ${booking.date} at ${booking.time}`);
+    console.log(chalk.magenta(`Thank you ${booking.customerName}! You have made a reservation at ${restaurant.name} for ${booking.numberOfGuests} people on ${booking.date} at ${booking.time}`));
 }
 
 function createBooking(customerName, date, time, numberOfGuests) {
@@ -89,6 +91,8 @@ const restaurantChoice = handleDiningChoice();
 const customerBooking = createBooking(customerName, date, time, numberOfGuests);
 
 addBooking(customerBooking, restaurantChoice);
+
+
 
 
 
