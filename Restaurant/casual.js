@@ -1,7 +1,7 @@
 const Restaurant = require('./restaurant.js')
 
 
-class Diner extends Restaurant {
+class Casual extends Restaurant {
     constructor(name, address, cuisineType) {
         super(name, address, cuisineType)
         this.dressCode = "Casual"
@@ -14,4 +14,4 @@ class Diner extends Restaurant {
     }
 }
 
-module.exports = Diner;
+module.exports = Casual;

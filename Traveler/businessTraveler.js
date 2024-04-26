@@ -2,9 +2,9 @@ const Traveler = require('./traveler')
 
 
 class BusinessTraveler extends Traveler {
-    constructor(name, origin, destination, companyName) {
-       super(name, origin, destination)
-       this.companyName = companyName
+    constructor(name, origin) {
+       super(name, origin)
+       this.destination = "New York City"
 
     }
 

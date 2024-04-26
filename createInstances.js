@@ -1,4 +1,6 @@
 const {fineDiningRestaurants, casualDiningRestaurants} = require('./data.js')
+const Restaurant = require('./Restaurant/restaurant.js')
+
 
 function createFineDining(fineArr){
 
@@ -48,6 +50,10 @@ function createCasualDining(casualArr){
 
 let fineObj = createFineDining(fineDiningRestaurants)
 let casualObj = createCasualDining(casualDiningRestaurants)
+
+// console.log(fineObj)
+// console.log(casualObj)
+
 
 module.exports = {
     fineObj,
