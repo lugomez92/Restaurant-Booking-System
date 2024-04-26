@@ -9,7 +9,7 @@ function createFineDining(fineArr){
     fineArr.map((restaurant)=>{
         let name = restaurant.name
         let address = restaurant.address
-        let cuisineType = restaurant.cuisineType
+        let cuisineType = restaurant.cuisineType.toLowerCase()
         let newRestaurant = new Restaurant(name,address,cuisineType)
 
         if(fineDining[cuisineType]){
@@ -33,7 +33,7 @@ function createCasualDining(casualArr){
     casualArr.map((restaurant)=>{
         let name = restaurant.name
         let address = restaurant.address
-        let cuisineType = restaurant.cuisineType
+        let cuisineType = restaurant.cuisineType.toLowerCase()
         let newRestaurant = new Restaurant(name,address,cuisineType)
 
         if(casualDining[cuisineType]){
