@@ -10,7 +10,7 @@ const BusinessTraveler = require('./Traveler/businessTraveler.js');
 const chalk = require('chalk');
 
 
-console.log(chalk.green("Welcome to the NYC restaurant booking system!"));
+console.log(chalk.green("Welcome to MysteryMunch, where our random booking system takes you on a flavorful journey to discover new restaurants and culinary surprises!"));
 
 const prompts = {
     name: chalk.blue("Please enter your name: "),
