@@ -13,17 +13,17 @@ const chalk = require('chalk');
 console.log(chalk.green("Welcome to the NYC restaurant booking system!"));
 
 const prompts = {
-    name: "Please enter your name: ",
-    date: "What is your booking date? ",
-    time: "Please enter your preferred time: ",
-    guests: "How many guests should we expect? ",
-    travelerType: "Are you here on business or vacation? ",
-    origin: "What city are you coming from? ",
-    invalidTravelerType: "Invalid answer, please choose vacation or business: ",
-    diningStyle: "Do you fancy a luxurious fine dining experience or perhaps a more laid back dinner? Please choose Fine or Casual: ",
-    invalidDiningStyle: "Invalid answer, please choose Fine or Casual: ",
-    fineType: "Would you prefer French, Japanese or American? ",
-    casualType: "Would you prefer French, American, Mexican or Pizza? "
+    name: chalk.blue("Please enter your name: "),
+    date: chalk.blue("What is your booking date? "),
+    time: chalk.blue("Please enter your preferred time: "),
+    guests: chalk.blue("How many guests should we expect? "),
+    travelerType: chalk.blue("Are you here on business or vacation? "),
+    origin: chalk.blue("What city are you coming from? "),
+    invalidTravelerType: chalk.red("Invalid answer, please choose vacation or business: "),
+    diningStyle: chalk.blue("Do you fancy a luxurious fine dining experience or perhaps a more laid back dinner? Please choose Fine or Casual: "),
+    invalidDiningStyle: chalk.red("Invalid answer, please choose Fine or Casual: "),
+    fineType: chalk.blue("Would you prefer French, Japanese or American? "),
+    casualType: chalk.blue("Would you prefer French, American, Mexican or Pizza? ")
 };
 
 function getUserInput(promptMessage) {
@@ -35,10 +35,10 @@ function handleTravelerType() {
     while (!travelerType || (travelerType !== "business" && travelerType !== "vacation")) {
         travelerType = getUserInput(prompts.travelerType);
         if (travelerType === "business") {
-            console.log(chalk.blue(`${origin} is a beautiful place! Welcome to NYC! We're happy to assist you with booking the perfect dining spot for your business.`));
+            console.log(chalk.green(`${origin} is a beautiful place! Welcome to NYC! We're happy to assist you with booking the perfect dining spot for your business.`));
             return new BusinessTraveler(customerName, origin);
         } else if (travelerType === "vacation") {
-            console.log(chalk.blue(`${origin} is a beautiful place! Welcome to NYC! We're happy to assist you with booking the perfect dining spot for your vacation.`));
+            console.log(chalk.green(`${origin} is a beautiful place! Welcome to NYC! We're happy to assist you with booking the perfect dining spot for your vacation.`));
             return new Vacationer(customerName, origin);
         } else {
             console.log(prompts.invalidTravelerType);
@@ -51,7 +51,7 @@ function handleDiningChoice() {
     while (!diningChoice || (diningChoice.toLowerCase() !== "fine" && diningChoice.toLowerCase() !== "casual")) {
         diningChoice = getUserInput(prompts.diningStyle).toLowerCase();
         if (diningChoice === "fine") {
-            console.log(chalk.cyan("Excellent choice! We'll make sure you have an unforgettable fine dining experience."));
+            console.log(chalk.green("Excellent choice! We'll make sure you have an unforgettable fine dining experience."));
             const fineType = getUserInput(prompts.fineType).toLowerCase();
             const fineChoice = fineObj[fineType];
             return getRandomRestaurant(fineChoice);
