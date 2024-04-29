@@ -56,7 +56,7 @@ function handleDiningChoice() {
             const fineChoice = fineObj[fineType];
             return getRandomRestaurant(fineChoice);
         } else if (diningChoice === "casual") {
-            console.log(chalk.cyan("Great! A casual dining experience it is. We'll find you the perfect spot."));
+            console.log(chalk.green("Great! A casual dining experience it is. We'll find you the perfect spot."));
             const casualType = getUserInput(prompts.casualType).toLowerCase();
             const casualChoice = casualObj[casualType];
             return getRandomRestaurant(casualChoice);
